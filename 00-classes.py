@@ -17,9 +17,9 @@ class User(Human):
         print(f'hello, {self.first_name} {self.last_name}')
 
 john = User("John", "Doe")
-#john.hello()
+john.hello()
 
 artur = User("Artur")
-#artur.hello()
+artur.hello()
 
 print(john)
