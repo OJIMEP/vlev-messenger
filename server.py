@@ -30,12 +30,13 @@ class Client(LineOnlyReceiver):
         #else:
         #    if message.startswith('login:'):
         #        new_login = message.replace('login:', '')
-        #        for user in self.factory.clients:
-        #            if user.login == new_login:
-        #                self.transport.write("Error: login already exists\n".encode())
-        #                self.connectionLost()
-        #                return
-
+        #        self.factory.clients_login.append(self.login)
+        #        if self.factory.clients_login.count(self.login) == 2:
+    #                self.transport.write("Error: login already exists\n".encode())
+    #                self.transport.write("Your login >>> ".encode())
+    #                self.factory.clients_login.remove(self.login)
+    #                self.transport.loseConnection()
+        #        else:
         #        self.login = new_login
         #        notification = f"New user connected: {self.login}\n"
 
@@ -51,6 +52,7 @@ class Client(LineOnlyReceiver):
 
 class Chat(Factory):
     clients: list
+    clients_login: list
 
     def __init__(self):
         self.clients = []
